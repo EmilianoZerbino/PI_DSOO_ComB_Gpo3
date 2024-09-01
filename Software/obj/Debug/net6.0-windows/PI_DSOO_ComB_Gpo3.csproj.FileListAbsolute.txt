@@ -1,0 +1,17 @@
+C:\Users\emili\Desktop\TSDS e Inglés\TSDS\1 Año\2° Cuatrimestre\Desarrollo de Sistemas Orientados a Objetos\PI_DSOO_ComB_Gpo3\Software\bin\Debug\net6.0-windows\PI_DSOO_ComB_Gpo3.exe
+C:\Users\emili\Desktop\TSDS e Inglés\TSDS\1 Año\2° Cuatrimestre\Desarrollo de Sistemas Orientados a Objetos\PI_DSOO_ComB_Gpo3\Software\bin\Debug\net6.0-windows\PI_DSOO_ComB_Gpo3.deps.json
+C:\Users\emili\Desktop\TSDS e Inglés\TSDS\1 Año\2° Cuatrimestre\Desarrollo de Sistemas Orientados a Objetos\PI_DSOO_ComB_Gpo3\Software\bin\Debug\net6.0-windows\PI_DSOO_ComB_Gpo3.runtimeconfig.json
+C:\Users\emili\Desktop\TSDS e Inglés\TSDS\1 Año\2° Cuatrimestre\Desarrollo de Sistemas Orientados a Objetos\PI_DSOO_ComB_Gpo3\Software\bin\Debug\net6.0-windows\PI_DSOO_ComB_Gpo3.dll
+C:\Users\emili\Desktop\TSDS e Inglés\TSDS\1 Año\2° Cuatrimestre\Desarrollo de Sistemas Orientados a Objetos\PI_DSOO_ComB_Gpo3\Software\bin\Debug\net6.0-windows\PI_DSOO_ComB_Gpo3.pdb
+C:\Users\emili\Desktop\TSDS e Inglés\TSDS\1 Año\2° Cuatrimestre\Desarrollo de Sistemas Orientados a Objetos\PI_DSOO_ComB_Gpo3\Software\obj\Debug\net6.0-windows\PI_DSOO_ComB_Gpo3.Form1.resources
+C:\Users\emili\Desktop\TSDS e Inglés\TSDS\1 Año\2° Cuatrimestre\Desarrollo de Sistemas Orientados a Objetos\PI_DSOO_ComB_Gpo3\Software\obj\Debug\net6.0-windows\PI_DSOO_ComB_Gpo3.csproj.GenerateResource.cache
+C:\Users\emili\Desktop\TSDS e Inglés\TSDS\1 Año\2° Cuatrimestre\Desarrollo de Sistemas Orientados a Objetos\PI_DSOO_ComB_Gpo3\Software\obj\Debug\net6.0-windows\PI_DSOO_ComB_Gpo3.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\emili\Desktop\TSDS e Inglés\TSDS\1 Año\2° Cuatrimestre\Desarrollo de Sistemas Orientados a Objetos\PI_DSOO_ComB_Gpo3\Software\obj\Debug\net6.0-windows\PI_DSOO_ComB_Gpo3.AssemblyInfoInputs.cache
+C:\Users\emili\Desktop\TSDS e Inglés\TSDS\1 Año\2° Cuatrimestre\Desarrollo de Sistemas Orientados a Objetos\PI_DSOO_ComB_Gpo3\Software\obj\Debug\net6.0-windows\PI_DSOO_ComB_Gpo3.AssemblyInfo.cs
+C:\Users\emili\Desktop\TSDS e Inglés\TSDS\1 Año\2° Cuatrimestre\Desarrollo de Sistemas Orientados a Objetos\PI_DSOO_ComB_Gpo3\Software\obj\Debug\net6.0-windows\PI_DSOO_ComB_Gpo3.csproj.CoreCompileInputs.cache
+C:\Users\emili\Desktop\TSDS e Inglés\TSDS\1 Año\2° Cuatrimestre\Desarrollo de Sistemas Orientados a Objetos\PI_DSOO_ComB_Gpo3\Software\obj\Debug\net6.0-windows\PI_DSOO_ComB_Gpo3.sourcelink.json
+C:\Users\emili\Desktop\TSDS e Inglés\TSDS\1 Año\2° Cuatrimestre\Desarrollo de Sistemas Orientados a Objetos\PI_DSOO_ComB_Gpo3\Software\obj\Debug\net6.0-windows\PI_DSOO_ComB_Gpo3.dll
+C:\Users\emili\Desktop\TSDS e Inglés\TSDS\1 Año\2° Cuatrimestre\Desarrollo de Sistemas Orientados a Objetos\PI_DSOO_ComB_Gpo3\Software\obj\Debug\net6.0-windows\refint\PI_DSOO_ComB_Gpo3.dll
+C:\Users\emili\Desktop\TSDS e Inglés\TSDS\1 Año\2° Cuatrimestre\Desarrollo de Sistemas Orientados a Objetos\PI_DSOO_ComB_Gpo3\Software\obj\Debug\net6.0-windows\PI_DSOO_ComB_Gpo3.pdb
+C:\Users\emili\Desktop\TSDS e Inglés\TSDS\1 Año\2° Cuatrimestre\Desarrollo de Sistemas Orientados a Objetos\PI_DSOO_ComB_Gpo3\Software\obj\Debug\net6.0-windows\PI_DSOO_ComB_Gpo3.genruntimeconfig.cache
+C:\Users\emili\Desktop\TSDS e Inglés\TSDS\1 Año\2° Cuatrimestre\Desarrollo de Sistemas Orientados a Objetos\PI_DSOO_ComB_Gpo3\Software\obj\Debug\net6.0-windows\ref\PI_DSOO_ComB_Gpo3.dll
