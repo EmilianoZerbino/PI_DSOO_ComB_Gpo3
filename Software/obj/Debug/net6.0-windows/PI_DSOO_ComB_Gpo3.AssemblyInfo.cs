@@ -14,7 +14,7 @@ using System.Reflection;
 [assembly: System.Reflection.AssemblyCompanyAttribute("PI_DSOO_ComB_Gpo3")]
 [assembly: System.Reflection.AssemblyConfigurationAttribute("Debug")]
 [assembly: System.Reflection.AssemblyFileVersionAttribute("1.0.0.0")]
-[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+d377c7d0ff32ff1e5923a43cc229f72b5ad93923")]
+[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+1a5981efc025612fbda74096d2ad80943edba9e2")]
 [assembly: System.Reflection.AssemblyProductAttribute("PI_DSOO_ComB_Gpo3")]
 [assembly: System.Reflection.AssemblyTitleAttribute("PI_DSOO_ComB_Gpo3")]
 [assembly: System.Reflection.AssemblyVersionAttribute("1.0.0.0")]
