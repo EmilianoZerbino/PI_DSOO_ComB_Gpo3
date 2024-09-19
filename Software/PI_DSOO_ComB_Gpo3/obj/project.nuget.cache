@@ -1,0 +1,13 @@
+{
+  "version": 2,
+  "dgSpecHash": "8kQSRTDuPfZy3y5lo+WY93gS1h3zAgI/dqfJEdBATwIyf0gsYCBZZZmFOPwpwnvg7Lg8OFp9BGLaNle0+2usmw==",
+  "success": true,
+  "projectFilePath": "C:\\Users\\emili\\Desktop\\TSDS e Inglés\\TSDS\\1 Año\\2° Cuatrimestre\\Desarrollo de Sistemas Orientados a Objetos\\PI_DSOO_ComB_Gpo3\\Software\\PI_DSOO_ComB_Gpo3\\PI_DSOO_ComB_Gpo3.csproj",
+  "expectedPackageFiles": [
+    "C:\\Users\\emili\\.nuget\\packages\\microsoft.windowsdesktop.app.ref\\6.0.27\\microsoft.windowsdesktop.app.ref.6.0.27.nupkg.sha512",
+    "C:\\Users\\emili\\.nuget\\packages\\microsoft.netcore.app.ref\\6.0.27\\microsoft.netcore.app.ref.6.0.27.nupkg.sha512",
+    "C:\\Users\\emili\\.nuget\\packages\\microsoft.aspnetcore.app.ref\\6.0.27\\microsoft.aspnetcore.app.ref.6.0.27.nupkg.sha512",
+    "C:\\Users\\emili\\.nuget\\packages\\microsoft.netcore.app.host.win-x64\\6.0.27\\microsoft.netcore.app.host.win-x64.6.0.27.nupkg.sha512"
+  ],
+  "logs": []
+}
