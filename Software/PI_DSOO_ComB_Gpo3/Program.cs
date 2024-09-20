@@ -1,7 +1,4 @@
-﻿using System.Net;
-using System.Threading;
-
-namespace PI_DSOO_ComB_Gpo3
+﻿namespace PI_DSOO_ComB_Gpo3
 {
     internal class Program
     {

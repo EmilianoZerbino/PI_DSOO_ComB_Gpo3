@@ -1,10 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-
-namespace PI_DSOO_ComB_Gpo3
+﻿namespace PI_DSOO_ComB_Gpo3
 {
     internal class ClubDeportivo
     {
@@ -21,25 +15,12 @@ namespace PI_DSOO_ComB_Gpo3
             Disciplinas = new List<Disciplina>();
             Socios = new List<Socio>();
             
-
         }
 
         public void altaSocio(int dni, string nombres, string apellidos, Direccion direccion, string nacionalidad) {
             Socio socio = new Socio(dni, nombres, apellidos, direccion, nacionalidad, siguienteNumeroSocio);
             siguienteNumeroSocio++;
             Socios.Add(socio);
-        }
-
-        public bool bajaSocio(int nSocio)
-        {
-            bool bandera = false;
-            foreach (Socio socio in Socios) {
-                if (socio.NSocio == nSocio) { 
-                    Socios.Remove(socio);
-                    bandera = true; //Cambia a true si se encuentra el NSocio
-                }
-            }
-            return bandera; //Devuelve true si se borro el socio y false si no se lo encontró
         }
 
         public string inscribirActividad(string nombreDisciplina, int nSocio) {

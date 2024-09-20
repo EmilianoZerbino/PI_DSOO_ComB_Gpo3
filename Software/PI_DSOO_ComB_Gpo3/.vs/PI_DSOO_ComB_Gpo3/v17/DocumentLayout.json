@@ -3,32 +3,32 @@
   "WorkspaceRootPath": "C:\\Users\\emili\\Desktop\\TSDS e Ingl\u00E9s\\TSDS\\1 A\u00F1o\\2\u00B0 Cuatrimestre\\Desarrollo de Sistemas Orientados a Objetos\\PI_DSOO_ComB_Gpo3\\Software\\PI_DSOO_ComB_Gpo3\\",
   "Documents": [
     {
-      "AbsoluteMoniker": "D:0:0:{335000A5-2B34-4D55-A895-333515B602EF}|PI_DSOO_ComB_Gpo3.csproj|c:\\users\\emili\\desktop\\tsds e ingl\u00E9s\\tsds\\1 a\u00F1o\\2\u00B0 cuatrimestre\\desarrollo de sistemas orientados a objetos\\pi_dsoo_comb_gpo3\\software\\pi_dsoo_comb_gpo3\\program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{335000A5-2B34-4D55-A895-333515B602EF}|PI_DSOO_ComB_Gpo3.csproj|solutionrelative:program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
       "AbsoluteMoniker": "D:0:0:{335000A5-2B34-4D55-A895-333515B602EF}|PI_DSOO_ComB_Gpo3.csproj|c:\\users\\emili\\desktop\\tsds e ingl\u00E9s\\tsds\\1 a\u00F1o\\2\u00B0 cuatrimestre\\desarrollo de sistemas orientados a objetos\\pi_dsoo_comb_gpo3\\software\\pi_dsoo_comb_gpo3\\socio.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{335000A5-2B34-4D55-A895-333515B602EF}|PI_DSOO_ComB_Gpo3.csproj|solutionrelative:socio.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{335000A5-2B34-4D55-A895-333515B602EF}|PI_DSOO_ComB_Gpo3.csproj|c:\\users\\emili\\desktop\\tsds e ingl\u00E9s\\tsds\\1 a\u00F1o\\2\u00B0 cuatrimestre\\desarrollo de sistemas orientados a objetos\\pi_dsoo_comb_gpo3\\software\\pi_dsoo_comb_gpo3\\clubdeportivo.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{335000A5-2B34-4D55-A895-333515B602EF}|PI_DSOO_ComB_Gpo3.csproj|solutionrelative:clubdeportivo.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{335000A5-2B34-4D55-A895-333515B602EF}|PI_DSOO_ComB_Gpo3.csproj|c:\\users\\emili\\desktop\\tsds e ingl\u00E9s\\tsds\\1 a\u00F1o\\2\u00B0 cuatrimestre\\desarrollo de sistemas orientados a objetos\\pi_dsoo_comb_gpo3\\software\\pi_dsoo_comb_gpo3\\persona.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{335000A5-2B34-4D55-A895-333515B602EF}|PI_DSOO_ComB_Gpo3.csproj|solutionrelative:persona.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{335000A5-2B34-4D55-A895-333515B602EF}|PI_DSOO_ComB_Gpo3.csproj|c:\\users\\emili\\desktop\\tsds e ingl\u00E9s\\tsds\\1 a\u00F1o\\2\u00B0 cuatrimestre\\desarrollo de sistemas orientados a objetos\\pi_dsoo_comb_gpo3\\software\\pi_dsoo_comb_gpo3\\disciplina.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{335000A5-2B34-4D55-A895-333515B602EF}|PI_DSOO_ComB_Gpo3.csproj|solutionrelative:disciplina.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+      "AbsoluteMoniker": "D:0:0:{335000A5-2B34-4D55-A895-333515B602EF}|PI_DSOO_ComB_Gpo3.csproj|c:\\users\\emili\\desktop\\tsds e ingl\u00E9s\\tsds\\1 a\u00F1o\\2\u00B0 cuatrimestre\\desarrollo de sistemas orientados a objetos\\pi_dsoo_comb_gpo3\\software\\pi_dsoo_comb_gpo3\\program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{335000A5-2B34-4D55-A895-333515B602EF}|PI_DSOO_ComB_Gpo3.csproj|solutionrelative:program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
       "AbsoluteMoniker": "D:0:0:{335000A5-2B34-4D55-A895-333515B602EF}|PI_DSOO_ComB_Gpo3.csproj|c:\\users\\emili\\desktop\\tsds e ingl\u00E9s\\tsds\\1 a\u00F1o\\2\u00B0 cuatrimestre\\desarrollo de sistemas orientados a objetos\\pi_dsoo_comb_gpo3\\software\\pi_dsoo_comb_gpo3\\profesor.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{335000A5-2B34-4D55-A895-333515B602EF}|PI_DSOO_ComB_Gpo3.csproj|solutionrelative:profesor.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
+      "AbsoluteMoniker": "D:0:0:{335000A5-2B34-4D55-A895-333515B602EF}|PI_DSOO_ComB_Gpo3.csproj|c:\\users\\emili\\desktop\\tsds e ingl\u00E9s\\tsds\\1 a\u00F1o\\2\u00B0 cuatrimestre\\desarrollo de sistemas orientados a objetos\\pi_dsoo_comb_gpo3\\software\\pi_dsoo_comb_gpo3\\persona.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{335000A5-2B34-4D55-A895-333515B602EF}|PI_DSOO_ComB_Gpo3.csproj|solutionrelative:persona.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
       "AbsoluteMoniker": "D:0:0:{335000A5-2B34-4D55-A895-333515B602EF}|PI_DSOO_ComB_Gpo3.csproj|c:\\users\\emili\\desktop\\tsds e ingl\u00E9s\\tsds\\1 a\u00F1o\\2\u00B0 cuatrimestre\\desarrollo de sistemas orientados a objetos\\pi_dsoo_comb_gpo3\\software\\pi_dsoo_comb_gpo3\\nosocio.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{335000A5-2B34-4D55-A895-333515B602EF}|PI_DSOO_ComB_Gpo3.csproj|solutionrelative:nosocio.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{335000A5-2B34-4D55-A895-333515B602EF}|PI_DSOO_ComB_Gpo3.csproj|c:\\users\\emili\\desktop\\tsds e ingl\u00E9s\\tsds\\1 a\u00F1o\\2\u00B0 cuatrimestre\\desarrollo de sistemas orientados a objetos\\pi_dsoo_comb_gpo3\\software\\pi_dsoo_comb_gpo3\\disciplina.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{335000A5-2B34-4D55-A895-333515B602EF}|PI_DSOO_ComB_Gpo3.csproj|solutionrelative:disciplina.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{335000A5-2B34-4D55-A895-333515B602EF}|PI_DSOO_ComB_Gpo3.csproj|c:\\users\\emili\\desktop\\tsds e ingl\u00E9s\\tsds\\1 a\u00F1o\\2\u00B0 cuatrimestre\\desarrollo de sistemas orientados a objetos\\pi_dsoo_comb_gpo3\\software\\pi_dsoo_comb_gpo3\\clubdeportivo.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{335000A5-2B34-4D55-A895-333515B602EF}|PI_DSOO_ComB_Gpo3.csproj|solutionrelative:clubdeportivo.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     }
   ],
   "DocumentGroupContainers": [
@@ -38,11 +38,11 @@
       "DocumentGroups": [
         {
           "DockedWidth": 200,
-          "SelectedChildIndex": 6,
+          "SelectedChildIndex": 5,
           "Children": [
             {
               "$type": "Document",
-              "DocumentIndex": 5,
+              "DocumentIndex": 2,
               "Title": "Profesor.cs",
               "DocumentMoniker": "C:\\Users\\emili\\Desktop\\TSDS e Ingl\u00E9s\\TSDS\\1 A\u00F1o\\2\u00B0 Cuatrimestre\\Desarrollo de Sistemas Orientados a Objetos\\PI_DSOO_ComB_Gpo3\\Software\\PI_DSOO_ComB_Gpo3\\Profesor.cs",
               "RelativeDocumentMoniker": "Profesor.cs",
@@ -55,7 +55,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 6,
+              "DocumentIndex": 4,
               "Title": "NoSocio.cs",
               "DocumentMoniker": "C:\\Users\\emili\\Desktop\\TSDS e Ingl\u00E9s\\TSDS\\1 A\u00F1o\\2\u00B0 Cuatrimestre\\Desarrollo de Sistemas Orientados a Objetos\\PI_DSOO_ComB_Gpo3\\Software\\PI_DSOO_ComB_Gpo3\\NoSocio.cs",
               "RelativeDocumentMoniker": "NoSocio.cs",
@@ -68,26 +68,26 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 2,
+              "DocumentIndex": 6,
               "Title": "ClubDeportivo.cs",
               "DocumentMoniker": "C:\\Users\\emili\\Desktop\\TSDS e Ingl\u00E9s\\TSDS\\1 A\u00F1o\\2\u00B0 Cuatrimestre\\Desarrollo de Sistemas Orientados a Objetos\\PI_DSOO_ComB_Gpo3\\Software\\PI_DSOO_ComB_Gpo3\\ClubDeportivo.cs",
               "RelativeDocumentMoniker": "ClubDeportivo.cs",
               "ToolTip": "C:\\Users\\emili\\Desktop\\TSDS e Ingl\u00E9s\\TSDS\\1 A\u00F1o\\2\u00B0 Cuatrimestre\\Desarrollo de Sistemas Orientados a Objetos\\PI_DSOO_ComB_Gpo3\\Software\\PI_DSOO_ComB_Gpo3\\ClubDeportivo.cs",
               "RelativeToolTip": "ClubDeportivo.cs",
-              "ViewState": "AQIAAEoAAAAAAAAAAAAowEEAAAB0AAAA",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAAABcAAAAJAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
               "WhenOpened": "2024-09-19T00:46:28.769Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 4,
+              "DocumentIndex": 5,
               "Title": "Disciplina.cs",
               "DocumentMoniker": "C:\\Users\\emili\\Desktop\\TSDS e Ingl\u00E9s\\TSDS\\1 A\u00F1o\\2\u00B0 Cuatrimestre\\Desarrollo de Sistemas Orientados a Objetos\\PI_DSOO_ComB_Gpo3\\Software\\PI_DSOO_ComB_Gpo3\\Disciplina.cs",
               "RelativeDocumentMoniker": "Disciplina.cs",
               "ToolTip": "C:\\Users\\emili\\Desktop\\TSDS e Ingl\u00E9s\\TSDS\\1 A\u00F1o\\2\u00B0 Cuatrimestre\\Desarrollo de Sistemas Orientados a Objetos\\PI_DSOO_ComB_Gpo3\\Software\\PI_DSOO_ComB_Gpo3\\Disciplina.cs",
               "RelativeToolTip": "Disciplina.cs",
-              "ViewState": "AQIAAAIAAAAAAAAAAAAxwA4AAAArAAAA",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAAAA4AAAArAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
               "WhenOpened": "2024-09-19T00:37:02.217Z",
               "EditorCaption": ""
@@ -100,14 +100,14 @@
               "RelativeDocumentMoniker": "Persona.cs",
               "ToolTip": "C:\\Users\\emili\\Desktop\\TSDS e Ingl\u00E9s\\TSDS\\1 A\u00F1o\\2\u00B0 Cuatrimestre\\Desarrollo de Sistemas Orientados a Objetos\\PI_DSOO_ComB_Gpo3\\Software\\PI_DSOO_ComB_Gpo3\\Persona.cs",
               "RelativeToolTip": "Persona.cs",
-              "ViewState": "AQIAAAQAAAAAAAAAAADgvxQAAAAIAAAA",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAAABQAAAAIAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
               "WhenOpened": "2024-09-19T00:34:17.888Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 1,
+              "DocumentIndex": 0,
               "Title": "Socio.cs",
               "DocumentMoniker": "C:\\Users\\emili\\Desktop\\TSDS e Ingl\u00E9s\\TSDS\\1 A\u00F1o\\2\u00B0 Cuatrimestre\\Desarrollo de Sistemas Orientados a Objetos\\PI_DSOO_ComB_Gpo3\\Software\\PI_DSOO_ComB_Gpo3\\Socio.cs",
               "RelativeDocumentMoniker": "Socio.cs",
@@ -120,13 +120,13 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 0,
+              "DocumentIndex": 1,
               "Title": "Program.cs",
               "DocumentMoniker": "C:\\Users\\emili\\Desktop\\TSDS e Ingl\u00E9s\\TSDS\\1 A\u00F1o\\2\u00B0 Cuatrimestre\\Desarrollo de Sistemas Orientados a Objetos\\PI_DSOO_ComB_Gpo3\\Software\\PI_DSOO_ComB_Gpo3\\Program.cs",
               "RelativeDocumentMoniker": "Program.cs",
               "ToolTip": "C:\\Users\\emili\\Desktop\\TSDS e Ingl\u00E9s\\TSDS\\1 A\u00F1o\\2\u00B0 Cuatrimestre\\Desarrollo de Sistemas Orientados a Objetos\\PI_DSOO_ComB_Gpo3\\Software\\PI_DSOO_ComB_Gpo3\\Program.cs",
               "RelativeToolTip": "Program.cs",
-              "ViewState": "AQIAAAYAAAAAAAAAAAAIwDgAAABhAAAA",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAAAAAAAAAAAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
               "WhenOpened": "2024-09-19T00:23:55.546Z",
               "EditorCaption": ""
