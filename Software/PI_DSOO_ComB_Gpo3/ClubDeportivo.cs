@@ -4,8 +4,6 @@
     {
 
         public List<Socio> Socios { get; } //Aca se le saco el Set para forzar a que las altas se hagan a traves del metodo altaSocio
-
-        public static int siguienteNumeroSocio = 1;
         public List<Profesor> Profesores { get; set; }
         public List<Disciplina> Disciplinas { get; set; }
 
@@ -18,8 +16,7 @@
         }
 
         public void altaSocio(int dni, string nombres, string apellidos, Direccion direccion, string nacionalidad) {
-            Socio socio = new Socio(dni, nombres, apellidos, direccion, nacionalidad, siguienteNumeroSocio);
-            siguienteNumeroSocio++;
+            Socio socio = new Socio(dni, nombres, apellidos, direccion, nacionalidad);
             Socios.Add(socio);
         }
 
