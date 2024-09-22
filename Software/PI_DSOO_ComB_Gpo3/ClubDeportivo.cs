@@ -4,6 +4,7 @@
     {
 
         public List<Socio> Socios { get; } //Aca se le saco el Set para forzar a que las altas se hagan a traves del metodo altaSocio
+        public List<NoSocio> NoSocios { get; set; }
         public List<Profesor> Profesores { get; set; }
         public List<Disciplina> Disciplinas { get; set; }
 
@@ -12,7 +13,7 @@
             Profesores = new List<Profesor>();
             Disciplinas = new List<Disciplina>();
             Socios = new List<Socio>();
-            
+            NoSocios = new List<NoSocio>();
         }
 
         public void altaSocio(int dni, string nombres, string apellidos, Direccion direccion, string nacionalidad) {
