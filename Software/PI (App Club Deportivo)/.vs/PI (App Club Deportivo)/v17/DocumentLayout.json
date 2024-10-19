@@ -1,0 +1,134 @@
+{
+  "Version": 1,
+  "WorkspaceRootPath": "C:\\Users\\emili\\Desktop\\TSDS e Ingl\u00E9s\\TSDS\\1 A\u00F1o\\2\u00B0 Cuatrimestre\\Desarrollo de Sistemas Orientados a Objetos\\PI_DSOO_ComB_Gpo3\\Software\\PI (App Club Deportivo)\\",
+  "Documents": [
+    {
+      "AbsoluteMoniker": "D:0:0:{E280DC44-84F1-43B6-93EC-7FA24991FF4D}|PI (App Club Deportivo).csproj|c:\\users\\emili\\desktop\\tsds e ingl\u00E9s\\tsds\\1 a\u00F1o\\2\u00B0 cuatrimestre\\desarrollo de sistemas orientados a objetos\\pi_dsoo_comb_gpo3\\software\\pi (app club deportivo)\\utilidades\\conexiondb.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{E280DC44-84F1-43B6-93EC-7FA24991FF4D}|PI (App Club Deportivo).csproj|solutionrelative:utilidades\\conexiondb.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{E280DC44-84F1-43B6-93EC-7FA24991FF4D}|PI (App Club Deportivo).csproj|c:\\users\\emili\\desktop\\tsds e ingl\u00E9s\\tsds\\1 a\u00F1o\\2\u00B0 cuatrimestre\\desarrollo de sistemas orientados a objetos\\pi_dsoo_comb_gpo3\\software\\pi (app club deportivo)\\paneles\\panelprincipal.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{E280DC44-84F1-43B6-93EC-7FA24991FF4D}|PI (App Club Deportivo).csproj|solutionrelative:paneles\\panelprincipal.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{E280DC44-84F1-43B6-93EC-7FA24991FF4D}|PI (App Club Deportivo).csproj|c:\\users\\emili\\desktop\\tsds e ingl\u00E9s\\tsds\\1 a\u00F1o\\2\u00B0 cuatrimestre\\desarrollo de sistemas orientados a objetos\\pi_dsoo_comb_gpo3\\software\\pi (app club deportivo)\\paneles\\formaltasocio.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{E280DC44-84F1-43B6-93EC-7FA24991FF4D}|PI (App Club Deportivo).csproj|solutionrelative:paneles\\formaltasocio.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{E280DC44-84F1-43B6-93EC-7FA24991FF4D}|PI (App Club Deportivo).csproj|c:\\users\\emili\\desktop\\tsds e ingl\u00E9s\\tsds\\1 a\u00F1o\\2\u00B0 cuatrimestre\\desarrollo de sistemas orientados a objetos\\pi_dsoo_comb_gpo3\\software\\pi (app club deportivo)\\entidades\\persona.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{E280DC44-84F1-43B6-93EC-7FA24991FF4D}|PI (App Club Deportivo).csproj|solutionrelative:entidades\\persona.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{E280DC44-84F1-43B6-93EC-7FA24991FF4D}|PI (App Club Deportivo).csproj|c:\\users\\emili\\desktop\\tsds e ingl\u00E9s\\tsds\\1 a\u00F1o\\2\u00B0 cuatrimestre\\desarrollo de sistemas orientados a objetos\\pi_dsoo_comb_gpo3\\software\\pi (app club deportivo)\\entidades\\socio.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{E280DC44-84F1-43B6-93EC-7FA24991FF4D}|PI (App Club Deportivo).csproj|solutionrelative:entidades\\socio.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{E280DC44-84F1-43B6-93EC-7FA24991FF4D}|PI (App Club Deportivo).csproj|c:\\users\\emili\\desktop\\tsds e ingl\u00E9s\\tsds\\1 a\u00F1o\\2\u00B0 cuatrimestre\\desarrollo de sistemas orientados a objetos\\pi_dsoo_comb_gpo3\\software\\pi (app club deportivo)\\paneles\\formaltasocio.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form",
+      "RelativeMoniker": "D:0:0:{E280DC44-84F1-43B6-93EC-7FA24991FF4D}|PI (App Club Deportivo).csproj|solutionrelative:paneles\\formaltasocio.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{E280DC44-84F1-43B6-93EC-7FA24991FF4D}|PI (App Club Deportivo).csproj|c:\\users\\emili\\desktop\\tsds e ingl\u00E9s\\tsds\\1 a\u00F1o\\2\u00B0 cuatrimestre\\desarrollo de sistemas orientados a objetos\\pi_dsoo_comb_gpo3\\software\\pi (app club deportivo)\\paneles\\formaltasocio.designer.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{E280DC44-84F1-43B6-93EC-7FA24991FF4D}|PI (App Club Deportivo).csproj|solutionrelative:paneles\\formaltasocio.designer.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    }
+  ],
+  "DocumentGroupContainers": [
+    {
+      "Orientation": 0,
+      "VerticalTabListWidth": 256,
+      "DocumentGroups": [
+        {
+          "DockedWidth": 200,
+          "SelectedChildIndex": 1,
+          "Children": [
+            {
+              "$type": "Document",
+              "DocumentIndex": 4,
+              "Title": "Socio.cs",
+              "DocumentMoniker": "C:\\Users\\emili\\Desktop\\TSDS e Ingl\u00E9s\\TSDS\\1 A\u00F1o\\2\u00B0 Cuatrimestre\\Desarrollo de Sistemas Orientados a Objetos\\PI_DSOO_ComB_Gpo3\\Software\\PI (App Club Deportivo)\\Entidades\\Socio.cs",
+              "RelativeDocumentMoniker": "Entidades\\Socio.cs",
+              "ToolTip": "C:\\Users\\emili\\Desktop\\TSDS e Ingl\u00E9s\\TSDS\\1 A\u00F1o\\2\u00B0 Cuatrimestre\\Desarrollo de Sistemas Orientados a Objetos\\PI_DSOO_ComB_Gpo3\\Software\\PI (App Club Deportivo)\\Entidades\\Socio.cs",
+              "RelativeToolTip": "Entidades\\Socio.cs",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAAAA0AAAB/AAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-10-15T23:36:22.985Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 0,
+              "Title": "ConexionDB.cs",
+              "DocumentMoniker": "C:\\Users\\emili\\Desktop\\TSDS e Ingl\u00E9s\\TSDS\\1 A\u00F1o\\2\u00B0 Cuatrimestre\\Desarrollo de Sistemas Orientados a Objetos\\PI_DSOO_ComB_Gpo3\\Software\\PI (App Club Deportivo)\\Utilidades\\ConexionDB.cs",
+              "RelativeDocumentMoniker": "Utilidades\\ConexionDB.cs",
+              "ToolTip": "C:\\Users\\emili\\Desktop\\TSDS e Ingl\u00E9s\\TSDS\\1 A\u00F1o\\2\u00B0 Cuatrimestre\\Desarrollo de Sistemas Orientados a Objetos\\PI_DSOO_ComB_Gpo3\\Software\\PI (App Club Deportivo)\\Utilidades\\ConexionDB.cs",
+              "RelativeToolTip": "Utilidades\\ConexionDB.cs",
+              "ViewState": "AQIAAFwBAAAAAAAAAAAkwGUBAAATAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-10-15T23:23:21.204Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 3,
+              "Title": "Persona.cs",
+              "DocumentMoniker": "C:\\Users\\emili\\Desktop\\TSDS e Ingl\u00E9s\\TSDS\\1 A\u00F1o\\2\u00B0 Cuatrimestre\\Desarrollo de Sistemas Orientados a Objetos\\PI_DSOO_ComB_Gpo3\\Software\\PI (App Club Deportivo)\\Entidades\\Persona.cs",
+              "RelativeDocumentMoniker": "Entidades\\Persona.cs",
+              "ToolTip": "C:\\Users\\emili\\Desktop\\TSDS e Ingl\u00E9s\\TSDS\\1 A\u00F1o\\2\u00B0 Cuatrimestre\\Desarrollo de Sistemas Orientados a Objetos\\PI_DSOO_ComB_Gpo3\\Software\\PI (App Club Deportivo)\\Entidades\\Persona.cs",
+              "RelativeToolTip": "Entidades\\Persona.cs",
+              "ViewState": "AQIAAAoAAAAAAAAAAAAcwB8AAABrAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-10-15T23:06:55.745Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 5,
+              "Title": "FormAltaSocio.cs [Dise\u00F1o]",
+              "DocumentMoniker": "C:\\Users\\emili\\Desktop\\TSDS e Ingl\u00E9s\\TSDS\\1 A\u00F1o\\2\u00B0 Cuatrimestre\\Desarrollo de Sistemas Orientados a Objetos\\PI_DSOO_ComB_Gpo3\\Software\\PI (App Club Deportivo)\\Paneles\\FormAltaSocio.cs",
+              "RelativeDocumentMoniker": "Paneles\\FormAltaSocio.cs",
+              "ToolTip": "C:\\Users\\emili\\Desktop\\TSDS e Ingl\u00E9s\\TSDS\\1 A\u00F1o\\2\u00B0 Cuatrimestre\\Desarrollo de Sistemas Orientados a Objetos\\PI_DSOO_ComB_Gpo3\\Software\\PI (App Club Deportivo)\\Paneles\\FormAltaSocio.cs [Dise\u00F1o]",
+              "RelativeToolTip": "Paneles\\FormAltaSocio.cs [Dise\u00F1o]",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-10-14T00:13:18.565Z",
+              "EditorCaption": " [Dise\u00F1o]"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 6,
+              "Title": "FormAltaSocio.Designer.cs",
+              "DocumentMoniker": "C:\\Users\\emili\\Desktop\\TSDS e Ingl\u00E9s\\TSDS\\1 A\u00F1o\\2\u00B0 Cuatrimestre\\Desarrollo de Sistemas Orientados a Objetos\\PI_DSOO_ComB_Gpo3\\Software\\PI (App Club Deportivo)\\Paneles\\FormAltaSocio.Designer.cs",
+              "RelativeDocumentMoniker": "Paneles\\FormAltaSocio.Designer.cs",
+              "ToolTip": "C:\\Users\\emili\\Desktop\\TSDS e Ingl\u00E9s\\TSDS\\1 A\u00F1o\\2\u00B0 Cuatrimestre\\Desarrollo de Sistemas Orientados a Objetos\\PI_DSOO_ComB_Gpo3\\Software\\PI (App Club Deportivo)\\Paneles\\FormAltaSocio.Designer.cs",
+              "RelativeToolTip": "Paneles\\FormAltaSocio.Designer.cs",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAAABYAAAAIAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-10-14T00:11:22.881Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 2,
+              "Title": "FormAltaSocio.cs",
+              "DocumentMoniker": "C:\\Users\\emili\\Desktop\\TSDS e Ingl\u00E9s\\TSDS\\1 A\u00F1o\\2\u00B0 Cuatrimestre\\Desarrollo de Sistemas Orientados a Objetos\\PI_DSOO_ComB_Gpo3\\Software\\PI (App Club Deportivo)\\Paneles\\FormAltaSocio.cs",
+              "RelativeDocumentMoniker": "Paneles\\FormAltaSocio.cs",
+              "ToolTip": "C:\\Users\\emili\\Desktop\\TSDS e Ingl\u00E9s\\TSDS\\1 A\u00F1o\\2\u00B0 Cuatrimestre\\Desarrollo de Sistemas Orientados a Objetos\\PI_DSOO_ComB_Gpo3\\Software\\PI (App Club Deportivo)\\Paneles\\FormAltaSocio.cs",
+              "RelativeToolTip": "Paneles\\FormAltaSocio.cs",
+              "ViewState": "AQIAABwAAAAAAAAAAAAcwB0AAAAzAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-10-14T00:09:48.961Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 1,
+              "Title": "PanelPrincipal.cs",
+              "DocumentMoniker": "C:\\Users\\emili\\Desktop\\TSDS e Ingl\u00E9s\\TSDS\\1 A\u00F1o\\2\u00B0 Cuatrimestre\\Desarrollo de Sistemas Orientados a Objetos\\PI_DSOO_ComB_Gpo3\\Software\\PI (App Club Deportivo)\\Paneles\\PanelPrincipal.cs",
+              "RelativeDocumentMoniker": "Paneles\\PanelPrincipal.cs",
+              "ToolTip": "C:\\Users\\emili\\Desktop\\TSDS e Ingl\u00E9s\\TSDS\\1 A\u00F1o\\2\u00B0 Cuatrimestre\\Desarrollo de Sistemas Orientados a Objetos\\PI_DSOO_ComB_Gpo3\\Software\\PI (App Club Deportivo)\\Paneles\\PanelPrincipal.cs",
+              "RelativeToolTip": "Paneles\\PanelPrincipal.cs",
+              "ViewState": "AQIAAMoAAAAAAAAAAAAjwOIAAAA0AAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-10-13T23:47:23.2Z",
+              "EditorCaption": ""
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}
