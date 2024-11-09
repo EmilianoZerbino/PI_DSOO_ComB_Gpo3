@@ -30,11 +30,11 @@ namespace PI__App_Club_Deportivo_.Paneles
                 // Si el usuario elige "Sí", proceder con la baja
                 if (result == DialogResult.Yes)
                 {
-                    bool exito = conexionDB.bajaSocio(Convert.ToInt32(txtDni.Text));
-
-                    if (exito)
+                    if (conexionDB.bajaSocio(Convert.ToInt32(txtDni.Text)))
                     {
-                        MessageBox.Show("El Socio / No Socio fue dado de baja correctamente.", "Baja Exitosa", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                        MessageBox.Show("El Socio fue dado de baja correctamente.", "Baja Exitosa", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                    } else if (conexionDB.bajaNoSocio(Convert.ToInt32(txtDni.Text))) {
+                            MessageBox.Show("El NoSocio fue dado de baja correctamente.", "Baja Exitosa", MessageBoxButtons.OK, MessageBoxIcon.Information);
                     }
                     else
                     {
@@ -51,17 +51,12 @@ namespace PI__App_Club_Deportivo_.Paneles
 
         private void txt_KeyPress(object sender, KeyPressEventArgs e)
         {
-            // Permitir solo números, el carácter de control (como borrar) y la coma o punto decimal.
-            if (!char.IsControl(e.KeyChar) && !char.IsDigit(e.KeyChar) && (e.KeyChar != '.'))
+            // Permitir solo números y el carácter de control (como borrar)
+            if (!char.IsControl(e.KeyChar) && !char.IsDigit(e.KeyChar))
             {
                 e.Handled = true; // Bloquea la entrada
             }
-
-            // Permitir solo un punto decimal
-            if ((e.KeyChar == '.') && ((sender as TextBox).Text.IndexOf('.') > -1))
-            {
-                e.Handled = true;
-            }
         }
+
     }
 }

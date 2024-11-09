@@ -250,6 +250,7 @@
             // btnAceptar
             // 
             btnAceptar.BackColor = Color.Green;
+            btnAceptar.DialogResult = DialogResult.OK;
             btnAceptar.FlatStyle = FlatStyle.Flat;
             btnAceptar.Font = new Font("Segoe UI", 11.25F, FontStyle.Bold, GraphicsUnit.Point);
             btnAceptar.ForeColor = SystemColors.ButtonFace;

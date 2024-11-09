@@ -371,50 +371,19 @@ namespace PI__App_Club_Deportivo_.Utilidades
                 conexion.Close();
             }
         }
-
+        
         public bool bajaSocio(int dni)
         {
             conexion.Open();
-
             try
             {
-                // Verificar si el DNI existe en la tabla Socio
-                string consultaSocio = "SELECT COUNT(*) FROM Socio WHERE Dni = @Dni;";
-                MySqlCommand cmdSocio = new MySqlCommand(consultaSocio, conexion);
-                cmdSocio.Parameters.AddWithValue("@Dni", dni);
-                int countSocio = Convert.ToInt32(cmdSocio.ExecuteScalar());
+                MySqlCommand cmd = new MySqlCommand("EliminarSocioPorDNI", conexion);
+                cmd.CommandType = CommandType.StoredProcedure;
+                cmd.Parameters.AddWithValue("@d", dni);
 
-                // Verificar si el DNI existe en la tabla NoSocio
-                string consultaNoSocio = "SELECT COUNT(*) FROM NoSocio WHERE Dni = @Dni;";
-                MySqlCommand cmdNoSocio = new MySqlCommand(consultaNoSocio, conexion);
-                cmdNoSocio.Parameters.AddWithValue("@Dni", dni);
-                int countNoSocio = Convert.ToInt32(cmdNoSocio.ExecuteScalar());
+                int result = cmd.ExecuteNonQuery();
 
-                // Si el DNI no se encontró en ninguna de las dos tablas, retorna false
-                if (countSocio == 0 && countNoSocio == 0)
-                {
-                    return false;
-                }
-
-                // Si el DNI existe en la tabla Socio, eliminarlo
-                if (countSocio > 0)
-                {
-                    string deleteSocio = "DELETE FROM Socio WHERE Dni = @Dni;";
-                    MySqlCommand deleteSocioCmd = new MySqlCommand(deleteSocio, conexion);
-                    deleteSocioCmd.Parameters.AddWithValue("@Dni", dni);
-                    deleteSocioCmd.ExecuteNonQuery();
-                }
-
-                // Si el DNI existe en la tabla NoSocio, eliminarlo
-                if (countNoSocio > 0)
-                {
-                    string deleteNoSocio = "DELETE FROM NoSocio WHERE Dni = @Dni;";
-                    MySqlCommand deleteNoSocioCmd = new MySqlCommand(deleteNoSocio, conexion);
-                    deleteNoSocioCmd.Parameters.AddWithValue("@Dni", dni);
-                    deleteNoSocioCmd.ExecuteNonQuery();
-                }
-
-                return true;
+                return result > 0;
             }
             catch (Exception ex)
             {
@@ -425,5 +394,178 @@ namespace PI__App_Club_Deportivo_.Utilidades
                 conexion.Close();
             }
         }
+
+        public bool bajaNoSocio(int dni)
+        {
+            conexion.Open();
+            try
+            {
+                MySqlCommand cmd = new MySqlCommand("EliminarNoSocioPorDNI", conexion);
+                cmd.CommandType = CommandType.StoredProcedure;
+                cmd.Parameters.AddWithValue("@d", dni);
+
+                int result = cmd.ExecuteNonQuery();
+
+                return result > 0;
+            }
+            catch (Exception ex)
+            {
+                throw new Exception("Error al eliminar los datos: " + ex.Message);
+            }
+            finally
+            {
+                conexion.Close();
+            }
+        }
+
+        public bool InscribirSocioActividad(int dni, int idDisciplina)
+        {
+            conexion.Open();
+            try
+            {
+                MySqlCommand cmd = new MySqlCommand("InscribirSocioActividad", conexion);
+                cmd.CommandType = CommandType.StoredProcedure;
+                cmd.Parameters.AddWithValue("@d", dni);
+                cmd.Parameters.AddWithValue("@idD", idDisciplina);
+
+                int result = cmd.ExecuteNonQuery();
+
+                return result > 0;
+            }
+            catch (Exception ex)
+            {
+                throw new Exception("Error al insertar los datos: " + ex.Message);
+            }
+            finally
+            {
+                conexion.Close();
+            }
+        }
+
+        public bool InscribirNoSocioActividad(int dni, int idDisciplina)
+        {
+            conexion.Open();
+            try
+            {
+                MySqlCommand cmd = new MySqlCommand("InscribirNoSocioActividad", conexion);
+                cmd.CommandType = CommandType.StoredProcedure;
+                cmd.Parameters.AddWithValue("@d", dni);
+                cmd.Parameters.AddWithValue("@idD", idDisciplina);
+
+                int result = cmd.ExecuteNonQuery();
+
+                return result > 0;
+            }
+            catch (Exception ex)
+            {
+                throw new Exception("Error al insertar los datos: " + ex.Message);
+            }
+            finally
+            {
+                conexion.Close();
+            }
+        }
+
+        public List<Disciplina> ObtenerListaDeDisciplinas()
+        {
+            List<Disciplina> listaDisciplinas = new List<Disciplina>();
+            string consulta = @"
+                        SELECT * from disciplina d join Profesor p
+                        On d.IdProfesor = p.IdProfesor join 
+                        direccion di on p.IdDireccion = di.IdDireccion";
+
+            try
+            {
+                conexion.Open();
+                MySqlCommand comando = new MySqlCommand(consulta, conexion);
+                MySqlDataReader lector = comando.ExecuteReader();
+
+                while (lector.Read())
+                {
+                    // Obtener la dirección del profesor
+                    Direccion direccion = new Direccion(
+                        lector.GetString("Calle"),
+                        lector.GetInt32("Altura"),
+                        lector.IsDBNull("NPiso") ? null : (int?)lector.GetInt32("NPiso"),
+                        lector.IsDBNull("NDepto") ? null : (int?)lector.GetInt32("NDepto"),
+                        lector.GetString("Barrio"),
+                        lector.GetString("Localidad")
+                    );
+
+                    // Crear el profesor
+                    Profesor profesor = new Profesor(
+                        lector.GetInt32("Dni"),
+                        lector.GetString("Nombres"),
+                        lector.GetString("Apellidos"),
+                        direccion,
+                        lector.GetString("Nacionalidad"),
+                        lector.GetInt32("NMatricula")
+                    );
+
+                    // Crear la disciplina
+                    Disciplina disciplina = new Disciplina(
+                        lector.GetInt32("IdDisciplina"),
+                        lector.GetString("Nombre"),
+                        profesor,
+                        lector.GetInt32("MaxInscriptos"),
+                        new List<Horario>(),
+                        lector.GetDouble("ArancelMensual")
+                    );
+                    listaDisciplinas.Add(disciplina);
+                }
+
+                lector.Close(); // Cerrar el lector principal
+            }
+            catch (MySqlException ex)
+            {
+                MessageBox.Show($"Error al ejecutar la consulta: {ex.Message}");
+            }
+            finally
+            {
+                conexion.Close();
+            }
+
+            consulta = @"select * from horario";
+            List<Horario> horarios = new List<Horario>();
+
+            try
+            {
+                conexion.Open();
+                MySqlCommand comando = new MySqlCommand(consulta, conexion);
+                MySqlDataReader lector = comando.ExecuteReader();
+
+                while (lector.Read())
+                {
+                    Horario horario = new Horario(
+                        lector.GetInt32("IdDisciplina"),
+                        (DiaSemana)Enum.Parse(typeof(DiaSemana), lector.GetString("Dia")),
+                        lector.GetTimeSpan("HoraInicio"),
+                        lector.GetTimeSpan("HoraFin")
+                    );
+                    horarios.Add(horario);
+                }
+
+                lector.Close(); // Cerrar el lector principal
+            }
+            catch (MySqlException ex)
+            {
+                MessageBox.Show($"Error al ejecutar la consulta: {ex.Message}");
+            }
+            finally
+            {
+                conexion.Close();
+            }
+
+            foreach (Disciplina disciplina in listaDisciplinas) {
+                foreach (Horario horario in horarios) {
+                    if (disciplina.IdDisciplina == horario.IdDisciplina) { 
+                    disciplina.Horarios.Add(horario);
+                    }
+                }
+            }
+
+            return listaDisciplinas;
+        }
+
     }
 }

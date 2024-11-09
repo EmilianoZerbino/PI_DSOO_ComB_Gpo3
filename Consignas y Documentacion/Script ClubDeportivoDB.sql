@@ -4,6 +4,7 @@ use ClubDeportivo;
 
 /*Tablas de Datos del Sistema*/
 
+drop table if exists disciplinahorario;
 drop table if exists socioDisciplina;
 drop table if exists noSocioDisciplina;
 drop table if exists disciplina;
@@ -61,14 +62,6 @@ create table profesor(
 	constraint fk_direccionProfesor foreign key(IdDireccion) references direccion(IdDireccion)
 );
 
-CREATE TABLE Horario (
-    IdHorario int auto_increment,
-    Dia enum('Sunday', 'Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday', 'Saturday') NOT NULL,
-    HoraInicio time,
-    HoraFin time,
-    constraint pk_horario primary key (IdHorario)
-);
-
 create table disciplina(
 	IdDisciplina int auto_increment,
 	Nombre varchar(30),
@@ -79,13 +72,14 @@ create table disciplina(
 	constraint fk_profesor foreign key(IdProfesor) references profesor(IdProfesor)
 );
 
-create table disciplinaHorario(
-IdDisciplinaHorario int auto_increment,
-IdDisciplina int,
-IdHorario int,
-constraint fk_disciplinaH foreign key(IdDisciplina) references disciplina(IdDisciplina),
-constraint fk_horarioD foreign key(IdHorario) references horario(IdHorario),
-constraint pk_disciplinaHorario primary key (IdDisciplinaHorario)
+CREATE TABLE Horario (
+    IdHorario int auto_increment,
+    IdDisciplina int,
+    Dia enum('Domingo', 'Lunes', 'Martes', 'Miércoles', 'Jueves', 'Viernes', 'Sábado') NOT NULL,
+    HoraInicio time,
+    HoraFin time,
+    constraint fk_disciplinaH foreign key(IdDisciplina) references disciplina(IdDisciplina),
+    constraint pk_horario primary key (IdHorario)
 );
 
 create table socioDisciplina(
@@ -93,7 +87,7 @@ create table socioDisciplina(
 	IdSocio int,
     IdDisciplina int,
     constraint pk_socioDisciplina primary key (IdSocioDisciplina),
-	constraint fk_socio foreign key(IdSocio) references socio(IdSocio),
+	constraint fk_socio foreign key(IdSocio) references socio(IdSocio) on delete cascade,
 	constraint fk_disciplina foreign key(IdDisciplina) references disciplina(IdDisciplina)
 );
 
@@ -102,7 +96,7 @@ create table noSocioDisciplina(
 	IdNoSocio int,
     IdDisciplina int,
     constraint pk_noSocioDisciplina primary key (IdNoSocioDisciplina),
-	constraint fk_noSocio foreign key(IdNoSocio) references noSocio(IdNoSocio),
+	constraint fk_noSocio foreign key(IdNoSocio) references noSocio(IdNoSocio) on delete cascade,
 	constraint fk_ndisciplina foreign key(IdDisciplina) references disciplina(IdDisciplina)
 );
 
@@ -126,6 +120,54 @@ Activo boolean default true,
 constraint pk_usuario primary key (CodUsu),
 constraint fk_usuario foreign key(RolUsu) references roles(RolUsu)
 );
+
+/*Procedimientos Almacenados*/
+
+DELIMITER $$
+CREATE PROCEDURE EliminarSocioPorDNI(in d INT)
+BEGIN 
+	DECLARE ID INT;
+    DECLARE IDDIR INT;
+    
+SELECT IdSocio, IdDireccion INTO ID, IDDIR FROM socio WHERE Dni = d; 
+DELETE FROM sociodisciplina WHERE IdSocio = ID;
+DELETE FROM socio where IdSocio = ID;
+DELETE FROM direccion WHERE IdDireccion = IDDIR;
+
+END$$
+
+DELIMITER $$
+CREATE PROCEDURE EliminarNoSocioPorDNI(in d INT)
+BEGIN 
+	DECLARE ID INT;
+    DECLARE IDDIR INT;
+    
+SELECT IdNoSocio, IdDireccion INTO ID, IDDIR FROM noSocio WHERE Dni = d; 
+DELETE FROM noSociodisciplina WHERE IdNoSocio = ID;
+DELETE FROM noSocio where IdNoSocio = ID;
+DELETE FROM direccion WHERE IdDireccion = IDDIR;
+
+END$$
+
+DELIMITER $$
+CREATE PROCEDURE InscribirSocioActividad(IN d INT, idD INT)
+BEGIN
+	DECLARE IDs INT;
+    SELECT IdSocio INTO idS FROM socio WHERE Dni = d;
+    IF idS IS NOT NULL THEN
+        INSERT INTO sociodisciplina (IdSocio, IdDisciplina) VALUES (idS, idD);
+    END IF;
+END $$
+
+DELIMITER $$
+CREATE PROCEDURE InscribirNoSocioActividad(IN d INT, idD INT)
+BEGIN
+	DECLARE IDs INT;
+    SELECT IdNoSocio INTO idS FROM nosocio WHERE Dni = d;
+    IF idS IS NOT NULL THEN
+        INSERT INTO nosociodisciplina (IdNoSocio, IdDisciplina) VALUES (idS, idD);
+    END IF;
+END $$
 
 /*Insercion de Datos para ejemplo*/
 
@@ -214,24 +256,17 @@ insert into disciplina (Nombre, IdProfesor, ArancelMensual, MaxInscriptos) value
 ('Tenis', 4, 4000.00, 10),
 ('Yoga', 5, 2500.00, 30);
 
-insert into Horario (Dia, HoraInicio, HoraFin) values
-('Monday', '18:00:00', '20:00:00'),
-('Wednesday', '18:00:00', '20:00:00'),
-('Tuesday', '19:00:00', '21:00:00'),
-('Thursday', '19:00:00', '21:00:00'),
-('Friday', '17:00:00', '19:00:00'),
-('Saturday', '10:00:00', '12:00:00'),
-('Monday', '09:00:00', '11:00:00'),
-('Wednesday', '09:00:00', '11:00:00'),
-('Tuesday', '08:00:00', '10:00:00'),
-('Thursday', '08:00:00', '10:00:00');
-
-insert into disciplinaHorario (IdDisciplina, IdHorario) values
-(1, 1), (1, 2),  
-(2, 3), (2, 4),  
-(3, 5), (3, 6),  
-(4, 7), (4, 8),  
-(5, 9), (5, 10); 
+insert into Horario (IdDisciplina, Dia, HoraInicio, HoraFin) values
+(1,'Lunes', '18:00:00', '20:00:00'),
+(1,'Miércoles', '18:00:00', '20:00:00'),
+(2,'Martes', '19:00:00', '21:00:00'),
+(2,'Jueves', '19:00:00', '21:00:00'),
+(3,'Viernes', '17:00:00', '19:00:00'),
+(3,'Sábado', '10:00:00', '12:00:00'),
+(4,'Lunes', '09:00:00', '11:00:00'),
+(4,'Miércoles', '09:00:00', '11:00:00'),
+(5,'Martes', '08:00:00', '10:00:00'),
+(5,'Jueves', '08:00:00', '10:00:00');
 
 insert into socioDisciplina (IdSocio, IdDisciplina) values
 (100001, 1), (100002, 1), (100003, 1),  

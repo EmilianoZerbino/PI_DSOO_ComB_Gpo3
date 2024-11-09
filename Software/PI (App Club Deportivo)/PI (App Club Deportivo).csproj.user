@@ -7,6 +7,9 @@
     <Compile Update="Paneles\FormAltaSocio.cs">
       <SubType>Form</SubType>
     </Compile>
+    <Compile Update="Paneles\FormInscribirActividad.cs">
+      <SubType>Form</SubType>
+    </Compile>
     <Compile Update="Paneles\FormPrincipal.cs">
       <SubType>Form</SubType>
     </Compile>

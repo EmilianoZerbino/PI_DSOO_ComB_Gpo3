@@ -215,18 +215,21 @@ namespace PI__App_Club_Deportivo_.Paneles
             FormAltaSocio formulario = new FormAltaSocio();
             DialogResult resultado = formulario.ShowDialog();
             DateTime hoy = DateTime.Now;
-            Direccion direccion = new Direccion(formulario.Calle, formulario.Altura, formulario.NPiso, formulario.NDpto, formulario.Barrio, formulario.Localidad);
-
-            if (formulario.Socio)
+            if (resultado == DialogResult.OK)
             {
-                Socio socio = new Socio(formulario.Dni, formulario.Nombres, formulario.Apellidos, direccion, formulario.Nacionalidad, hoy);
-                conexionDB.InsertarSocio(socio);
+                Direccion direccion = new Direccion(formulario.Calle, formulario.Altura, formulario.NPiso, formulario.NDpto, formulario.Barrio, formulario.Localidad);
+
+                if (formulario.Socio)
+                {
+                    Socio socio = new Socio(formulario.Dni, formulario.Nombres, formulario.Apellidos, direccion, formulario.Nacionalidad, hoy);
+                    conexionDB.InsertarSocio(socio);
+                }
+                else
+                {
+                    NoSocio noSocio = new NoSocio(formulario.Dni, formulario.Nombres, formulario.Apellidos, direccion, formulario.Nacionalidad, hoy);
+                    conexionDB.InsertarNoSocio(noSocio);
+                }
             }
-            else {
-                NoSocio noSocio = new NoSocio(formulario.Dni, formulario.Nombres, formulario.Apellidos, direccion, formulario.Nacionalidad, hoy);
-                conexionDB.InsertarNoSocio(noSocio);
-            }
-            
         }
 
         private void BtnBajaSocio_Click(object sender, EventArgs e)
@@ -237,7 +240,8 @@ namespace PI__App_Club_Deportivo_.Paneles
 
         private void BtnInscribir_Click(object sender, EventArgs e)
         {
-            // Lógica para el botón "Inscribir a Actividad"
+            FormInscribirActividad formulario = new FormInscribirActividad(conexionDB);
+            formulario.ShowDialog();
         }
 
         private void BtnDesInscribir_Click(object sender, EventArgs e)
