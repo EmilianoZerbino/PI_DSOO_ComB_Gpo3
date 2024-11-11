@@ -1,10 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-
-namespace PI__App_Club_Deportivo_.Entidades
+﻿namespace PI__App_Club_Deportivo_.Entidades
 {
     public class NoSocio : Persona
     {

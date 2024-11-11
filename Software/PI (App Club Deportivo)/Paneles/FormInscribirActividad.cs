@@ -1,14 +1,5 @@
 ﻿using PI__App_Club_Deportivo_.Entidades;
 using PI__App_Club_Deportivo_.Utilidades;
-using System;
-using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
-using System.Drawing;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using System.Windows.Forms;
 
 namespace PI__App_Club_Deportivo_.Paneles
 {
@@ -56,7 +47,7 @@ namespace PI__App_Club_Deportivo_.Paneles
 
         private void btnInscribir_Click(object sender, EventArgs e)
         {
-            // Verifica que hay una fila seleccionada y que el campo DNI no esté vacío
+            
             if (tabla.SelectedRows.Count > 0 && txtDni.Text != "")
             {
                 // Obtener la fila seleccionada
@@ -68,26 +59,45 @@ namespace PI__App_Club_Deportivo_.Paneles
                     // Mostrar un MessageBox de confirmación
                     DialogResult result = MessageBox.Show(
                             "¿Estás seguro de que deseas Inscribir al Socio / No Socio con DNI " + txtDni.Text + "en " + filaSeleccionada.Cells["Actividad"].Value.ToString() + "?",
-                            "Confirmar Baja",
+                            "Confirmar Isncripcion",
                             MessageBoxButtons.YesNo,
                             MessageBoxIcon.Warning); ;
 
-                    // Si el usuario elige "Sí", proceder con la baja
                     if (result == DialogResult.Yes)
                     {
-                        if (conexionDB.InscribirSocioActividad(Convert.ToInt32(txtDni.Text), Convert.ToInt32(filaSeleccionada.Tag)))
+                        string resultMessageSocio = conexionDB.InscribirSocioActividad(Convert.ToInt32(txtDni.Text), Convert.ToInt32(filaSeleccionada.Tag));
+
+                        if (resultMessageSocio == "Inscripción de Socio realizada correctamente.")
                         {
-                            MessageBox.Show("Inscripción de Socio exitosa!", "Éxito", MessageBoxButtons.OK, MessageBoxIcon.Information);
-                        }
-                        else if (conexionDB.InscribirNoSocioActividad(Convert.ToInt32(txtDni.Text), Convert.ToInt32(filaSeleccionada.Tag)))
+
+                            MessageBox.Show(resultMessageSocio, "Advertencia", MessageBoxButtons.OK, MessageBoxIcon.Information);
+
+                        } else if (resultMessageSocio == "El socio ya está inscripto en la disciplina.") {
+
+                            MessageBox.Show(resultMessageSocio, "Éxito", MessageBoxButtons.OK, MessageBoxIcon.Information);
+
+                        } else {
+                      
+                            string resultMessageNoSocio = conexionDB.InscribirNoSocioActividad(Convert.ToInt32(txtDni.Text), Convert.ToInt32(filaSeleccionada.Tag));
+
+                            if (resultMessageNoSocio == "Inscripción de No Socio realizada correctamente.")
+                            {
+                                MessageBox.Show(resultMessageNoSocio, "Éxito", MessageBoxButtons.OK, MessageBoxIcon.Information);
+
+                            } else if (resultMessageNoSocio == "El No Socio ya está inscripto en la disciplina.")
                         {
-                            MessageBox.Show("Inscripción de No Socio exitosa!", "Éxito", MessageBoxButtons.OK, MessageBoxIcon.Information);
+
+                            MessageBox.Show(resultMessageNoSocio, "Advertencia", MessageBoxButtons.OK, MessageBoxIcon.Information);
+
                         }
-                        else {
-                            MessageBox.Show("Error al Inscribir, Cheque que el DNI ingresado pertenezca a un Socio o No Socio", "Advertencia", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                        else
+                            {
+                                // Si no se pudo inscribir ni como Socio ni como No Socio, mostrar mensaje de advertencia
+                                MessageBox.Show("Error al Inscribir, cheque que el DNI ingresado pertenezca a un Socio o No Socio", "Advertencia", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                            }
                         }
                     }
-                      }
+                }
                 else
                 {
                     // Mostrar mensaje de advertencia si se seleccionó el encabezado

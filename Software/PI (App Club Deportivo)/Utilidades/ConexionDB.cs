@@ -4,6 +4,7 @@ using static Mysqlx.Crud.Order.Types;
 using System.Net;
 using System.Data;
 using System.Transactions;
+using System.Security.Cryptography;
 
 namespace PI__App_Club_Deportivo_.Utilidades
 {
@@ -183,6 +184,83 @@ namespace PI__App_Club_Deportivo_.Utilidades
             }
             return listaNoSocios;
         }
+
+        public Socio ObtenerSocioPorDni(int dni)
+        {
+            conexion.Open();
+            try
+            {
+                MySqlCommand cmd = new MySqlCommand("GetSocioPorDNI", conexion);
+                cmd.CommandType = CommandType.StoredProcedure;
+                cmd.Parameters.AddWithValue("@d", dni);
+                MySqlDataReader lector = cmd.ExecuteReader();
+
+                
+                if (lector.HasRows)
+                {
+                    lector.Read();  
+
+                    Socio socio = new Socio(lector.GetInt32("dni"), lector.GetString("Nombres"),
+                                            lector.GetString("Apellidos"),null,
+                                            lector.GetString("Nacionalidad"),null);                      
+                    
+                    lector.Close();
+                    return socio;
+                }
+                else
+                {
+                    lector.Close();
+                    return null;  
+                }
+            }
+            catch (Exception ex)
+            {
+                throw new Exception("Error al leer datos: " + ex.Message);
+            }
+            finally
+            {
+                conexion.Close();
+            }
+        }
+
+        public NoSocio ObtenerNoSocioPorDni(int dni)
+        {
+            conexion.Open();
+            try
+            {
+                MySqlCommand cmd = new MySqlCommand("GetNoSocioPorDNI", conexion);
+                cmd.CommandType = CommandType.StoredProcedure;
+                cmd.Parameters.AddWithValue("@d", dni);
+                MySqlDataReader lector = cmd.ExecuteReader();
+
+
+                if (lector.HasRows)
+                {
+                    lector.Read();
+
+                    NoSocio nosocio = new NoSocio(lector.GetInt32("dni"), lector.GetString("Nombres"),
+                                                    lector.GetString("Apellidos"), null,
+                                                    lector.GetString("Nacionalidad"), null);
+
+                    lector.Close();
+                    return nosocio;
+                }
+                else
+                {
+                    lector.Close();
+                    return null;
+                }
+            }
+            catch (Exception ex)
+            {
+                throw new Exception("Error al leer datos: " + ex.Message);
+            }
+            finally
+            {
+                conexion.Close();
+            }
+        }
+
 
         public List<Socio> ObtenerSociosConCuotaVencida()
         {
@@ -418,19 +496,21 @@ namespace PI__App_Club_Deportivo_.Utilidades
             }
         }
 
-        public bool InscribirSocioActividad(int dni, int idDisciplina)
+        public string InscribirSocioActividad(int dni, int idDisciplina)
         {
             conexion.Open();
+
             try
             {
                 MySqlCommand cmd = new MySqlCommand("InscribirSocioActividad", conexion);
                 cmd.CommandType = CommandType.StoredProcedure;
+
                 cmd.Parameters.AddWithValue("@d", dni);
                 cmd.Parameters.AddWithValue("@idD", idDisciplina);
 
-                int result = cmd.ExecuteNonQuery();
+                object result = cmd.ExecuteScalar(); 
 
-                return result > 0;
+                return result != null ? result.ToString() : "Error desconocido";
             }
             catch (Exception ex)
             {
@@ -442,19 +522,21 @@ namespace PI__App_Club_Deportivo_.Utilidades
             }
         }
 
-        public bool InscribirNoSocioActividad(int dni, int idDisciplina)
+        public string InscribirNoSocioActividad(int dni, int idDisciplina)
         {
             conexion.Open();
+
             try
             {
                 MySqlCommand cmd = new MySqlCommand("InscribirNoSocioActividad", conexion);
                 cmd.CommandType = CommandType.StoredProcedure;
+
                 cmd.Parameters.AddWithValue("@d", dni);
                 cmd.Parameters.AddWithValue("@idD", idDisciplina);
 
-                int result = cmd.ExecuteNonQuery();
+                object result = cmd.ExecuteScalar();
 
-                return result > 0;
+                return result != null ? result.ToString() : "Error desconocido";
             }
             catch (Exception ex)
             {
@@ -466,6 +548,30 @@ namespace PI__App_Club_Deportivo_.Utilidades
             }
         }
 
+        public bool DesinscribirSocioActividad(int dni, int idDisciplina) {
+            conexion.Open();
+
+            try
+            {
+                MySqlCommand cmd = new MySqlCommand("DesinscribirActividad", conexion);
+                cmd.CommandType = CommandType.StoredProcedure;
+
+                cmd.Parameters.AddWithValue("@d", dni);
+                cmd.Parameters.AddWithValue("@idD", idDisciplina);
+
+                cmd.ExecuteNonQuery();
+
+                return true;
+            }
+            catch (Exception ex)
+            {
+                throw new Exception("Error desincribir Socio / No Socio" + ex.Message);
+            }
+            finally
+            {
+                conexion.Close();
+            }
+        }
         public List<Disciplina> ObtenerListaDeDisciplinas()
         {
             List<Disciplina> listaDisciplinas = new List<Disciplina>();
@@ -567,5 +673,169 @@ namespace PI__App_Club_Deportivo_.Utilidades
             return listaDisciplinas;
         }
 
+        public List<Disciplina> consultarDisciplinasSocio(int dni) { 
+            
+            List<Disciplina> listaDisciplinas = new List<Disciplina>();
+            List<Horario> listHorarios = new List<Horario>();
+
+            conexion.Open();
+            try
+            {
+                MySqlCommand cmd = new MySqlCommand("ConsultarDisciplinasPorDNI", conexion);
+                cmd.CommandType = CommandType.StoredProcedure;
+                cmd.Parameters.AddWithValue("@d", dni);
+                MySqlDataReader lector = cmd.ExecuteReader();
+
+                while (lector.Read())
+                {
+                    bool existente = false;
+                    foreach (Disciplina d in listaDisciplinas) {
+                        if (d.IdDisciplina == lector.GetInt32("IdDisciplina")) { 
+                        existente = true;
+                        }
+                    }
+                    if (!existente)
+                    {
+                        Profesor profesor = new Profesor(0, lector.GetString("Nombres"), lector.GetString("Nombres"), null, "", 0);
+                        Disciplina disciplina = new Disciplina(lector.GetInt32("IdDisciplina"), lector.GetString("Nombre"), profesor, 0, new List<Horario>(), lector.GetInt32("ArancelMensual"));
+                        listaDisciplinas.Add(disciplina);
+                    }
+                    Horario horario = new Horario(lector.GetInt32("IdDisciplina"), (DiaSemana)Enum.Parse(typeof(DiaSemana), lector.GetString("Dia")), lector.GetTimeSpan("HoraInicio"), lector.GetTimeSpan("HoraFin"));
+                    listHorarios.Add(horario);
+                }
+                foreach (Disciplina d in listaDisciplinas)
+                {
+                    foreach (Horario h in listHorarios)
+                    {
+                        if (d.IdDisciplina == h.IdDisciplina)
+                        {
+                            d.Horarios.Add(h);
+                        }
+                    }
+                }
+
+                lector.Close();
+                return listaDisciplinas;
+            }
+            catch (Exception ex)
+            {
+                throw new Exception("Error al leer datos: " + ex.Message);
+            }
+            finally
+            {
+                conexion.Close();
+            }
+        }
+
+        public double consultarCuotaMensual(int dni) { 
+            
+            conexion.Open();
+            try
+            {
+                MySqlCommand cmd = new MySqlCommand("ConsultarCuotaMensual", conexion);
+                cmd.CommandType = CommandType.StoredProcedure;
+                cmd.Parameters.AddWithValue("@d", dni);
+                MySqlDataReader lector = cmd.ExecuteReader();
+
+
+                if (lector.HasRows)
+                {
+                    lector.Read();
+
+                    double resultado = lector.GetDouble("cuotaMensual");
+
+                    lector.Close();
+                    return resultado;
+                }
+                return 0;
+            }
+            catch (Exception ex)
+            {
+                throw new Exception("Error al leer datos: " + ex.Message);
+            }
+            finally
+            {
+                conexion.Close();
+            }
+        }
+
+        public double consultarCuotaDiaria(int dni)
+        {
+
+            conexion.Open();
+            try
+            {
+                MySqlCommand cmd = new MySqlCommand("ConsultarCuotaDiaria", conexion);
+                cmd.CommandType = CommandType.StoredProcedure;
+                cmd.Parameters.AddWithValue("@d", dni);
+                MySqlDataReader lector = cmd.ExecuteReader();
+
+
+                if (lector.HasRows)
+                {
+                    lector.Read();
+
+                    double resultado = lector.GetDouble("cuotaDiaria");
+
+                    lector.Close();
+                    return resultado;
+                }
+                return 0;
+            }
+            catch (Exception ex)
+            {
+                throw new Exception("Error al leer datos: " + ex.Message);
+            }
+            finally
+            {
+                conexion.Close();
+            }
+        }
+
+        public bool abonarCuotaMensual(int dni)
+        {
+
+            conexion.Open();
+            try
+            {
+                MySqlCommand cmd = new MySqlCommand("AbonarCuotaMensual", conexion);
+                cmd.CommandType = CommandType.StoredProcedure;
+                cmd.Parameters.AddWithValue("@d", dni);
+                MySqlDataReader lector = cmd.ExecuteReader();
+
+                return true;
+            }
+            catch (Exception ex)
+            {
+                throw new Exception("Error al leer datos: " + ex.Message);
+            }
+            finally
+            {
+                conexion.Close();
+            }
+        }
+
+        public bool abonarCuotaDiaria(int dni)
+        {
+
+            conexion.Open();
+            try
+            {
+                MySqlCommand cmd = new MySqlCommand("AbonarCuotaDiaria", conexion);
+                cmd.CommandType = CommandType.StoredProcedure;
+                cmd.Parameters.AddWithValue("@d", dni);
+                MySqlDataReader lector = cmd.ExecuteReader();
+
+                return true;
+            }
+            catch (Exception ex)
+            {
+                throw new Exception("Error al leer datos: " + ex.Message);
+            }
+            finally
+            {
+                conexion.Close();
+            }
+        }
     }
 }

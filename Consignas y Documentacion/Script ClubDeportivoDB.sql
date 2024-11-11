@@ -2,7 +2,9 @@ drop database if exists ClubDeportivo;
 create database ClubDeportivo;
 use ClubDeportivo;
 
+/*-------------------------------------------------------------------------------------------------------------------------------------------------*/
 /*Tablas de Datos del Sistema*/
+/*-------------------------------------------------------------------------------------------------------------------------------------------------*/
 
 drop table if exists disciplinahorario;
 drop table if exists socioDisciplina;
@@ -100,7 +102,9 @@ create table noSocioDisciplina(
 	constraint fk_ndisciplina foreign key(IdDisciplina) references disciplina(IdDisciplina)
 );
 
+/*-------------------------------------------------------------------------------------------------------------------------------------------------*/
 /*Tablas de Usuarios del Sistema*/
+/*-------------------------------------------------------------------------------------------------------------------------------------------------*/
 
 drop table if exists usuario;
 drop table if exists roles;
@@ -121,7 +125,25 @@ constraint pk_usuario primary key (CodUsu),
 constraint fk_usuario foreign key(RolUsu) references roles(RolUsu)
 );
 
+/*-------------------------------------------------------------------------------------------------------------------------------------------------*/
 /*Procedimientos Almacenados*/
+/*-------------------------------------------------------------------------------------------------------------------------------------------------*/
+
+DELIMITER $$
+CREATE PROCEDURE GetSocioPorDNI(in d INT)
+BEGIN 
+    
+SELECT * FROM socio WHERE dni = d;
+
+END$$
+
+DELIMITER $$
+CREATE PROCEDURE GetNoSocioPorDNI(in d INT)
+BEGIN 
+    
+SELECT * FROM nosocio WHERE dni = d;
+
+END$$
 
 DELIMITER $$
 CREATE PROCEDURE EliminarSocioPorDNI(in d INT)
@@ -150,26 +172,189 @@ DELETE FROM direccion WHERE IdDireccion = IDDIR;
 END$$
 
 DELIMITER $$
+
 CREATE PROCEDURE InscribirSocioActividad(IN d INT, idD INT)
 BEGIN
-	DECLARE IDs INT;
+    DECLARE idS INT;
+    DECLARE resultMessage VARCHAR(255);
+
     SELECT IdSocio INTO idS FROM socio WHERE Dni = d;
+    
     IF idS IS NOT NULL THEN
-        INSERT INTO sociodisciplina (IdSocio, IdDisciplina) VALUES (idS, idD);
+
+        IF NOT EXISTS ( SELECT 1 FROM sociodisciplina WHERE IdSocio = idS AND IdDisciplina = idD ) THEN
+        
+            INSERT INTO sociodisciplina (IdSocio, IdDisciplina) VALUES (idS, idD);
+            SET resultMessage = 'Inscripción de Socio realizada correctamente.';
+        ELSE
+      
+            SET resultMessage = 'El socio ya está inscripto en la disciplina.';
+        END IF;
+    ELSE
+   
+        SET resultMessage = 'No se encontró un socio con ese DNI.';
     END IF;
+    
+    SELECT resultMessage AS Resultado;
+
 END $$
 
 DELIMITER $$
+
 CREATE PROCEDURE InscribirNoSocioActividad(IN d INT, idD INT)
 BEGIN
-	DECLARE IDs INT;
+    DECLARE idS INT;
+    DECLARE resultMessage VARCHAR(255);
+
     SELECT IdNoSocio INTO idS FROM nosocio WHERE Dni = d;
+    
     IF idS IS NOT NULL THEN
-        INSERT INTO nosociodisciplina (IdNoSocio, IdDisciplina) VALUES (idS, idD);
+
+        IF NOT EXISTS ( SELECT 1 FROM nosociodisciplina WHERE IdNoSocio = idS AND IdDisciplina = idD ) THEN
+        
+            INSERT INTO nosociodisciplina (IdNoSocio, IdDisciplina) VALUES (idS, idD);
+            SET resultMessage = 'Inscripción de No Socio realizada correctamente.';
+        ELSE
+      
+            SET resultMessage = 'El No Socio ya está inscripto en la disciplina.';
+        END IF;
+    ELSE
+   
+        SET resultMessage = 'No se encontró un socio con ese DNI.';
     END IF;
+    
+    SELECT resultMessage AS Resultado;
+
 END $$
 
+DELIMITER $$
+
+CREATE PROCEDURE ConsultarDisciplinasPorDNI(in d INT)
+BEGIN
+
+    DECLARE ID INT;
+
+    SELECT idSocio INTO ID FROM socio WHERE dni = d;
+
+    IF ID IS NOT NULL THEN
+        SELECT sd.idSocio, di.idDisciplina, di.Nombre, di.ArancelMensual, p.Nombres, p.Apellidos, h.dia, h.horaInicio, h.horaFin
+        FROM socio s
+        JOIN sociodisciplina sd ON s.idSocio = sd.idSocio
+        JOIN disciplina di ON sd.idDisciplina = di.idDisciplina
+        JOIN profesor p ON di.idProfesor = p.idProfesor
+        JOIN horario h ON di.idDisciplina = h.idDisciplina
+        WHERE s.dni = d;
+
+    ELSE
+        SELECT idNosocio INTO ID FROM nosocio WHERE dni = d;
+
+        IF ID IS NOT NULL THEN
+            SELECT nd.idNoSocio, di.idDisciplina, di.Nombre, di.ArancelMensual, p.Nombres, p.Apellidos, h.dia, h.horaInicio, h.horaFin
+            FROM nosocio s
+            JOIN nosociodisciplina nd ON s.idNoSocio = nd.idNoSocio
+            JOIN disciplina di ON nd.idDisciplina = di.idDisciplina
+            JOIN profesor p ON di.idProfesor = p.idProfesor
+            JOIN horario h ON di.idDisciplina = h.idDisciplina
+            WHERE s.dni = d;
+        END IF;
+    END IF;
+
+END$$
+$
+
+DELIMITER $$
+CREATE PROCEDURE DesinscribirActividad(in d INT, idD INT)
+BEGIN 
+    
+delete from sociodisciplina sd where (select s.idSocio from socio s where dni=d) = idSocio and idDisciplina = idD;
+delete from nosociodisciplina nd where (select n.idNoSocio from nosocio n where dni=d) = idNoSocio and idDisciplina = idD;
+
+END$$
+
+DELIMITER $$
+
+CREATE PROCEDURE ConsultarCuotaDiaria(IN d INT)
+BEGIN
+    DECLARE cuotaMensual DOUBLE;
+    
+    select sum(ArancelMensual) into cuotamensual from socio s 
+    join sociodisciplina sd on s.idSocio=sd.idSocio 
+    join disciplina d on sd.idDisciplina = d.idDisciplina 
+    where s.dni=d;
+    
+    IF cuotaMensual IS NULL THEN
+        select sum(ArancelMensual) into cuotamensual from nosocio n 
+		join nosociodisciplina nd on n.idNoSocio = nd.idNoSocio 
+		join disciplina d on nd.idDisciplina = d.idDisciplina 
+		where n.dni=d;
+    END IF;
+
+    SELECT cuotaMensual / 30 AS CuotaDiaria;
+END$$
+
+DELIMITER $$
+
+CREATE PROCEDURE ConsultarCuotaMensual(IN d INT)
+BEGIN
+    DECLARE cuotaMensual DOUBLE;
+    
+    select sum(ArancelMensual) into cuotamensual from socio s 
+    join sociodisciplina sd on s.idSocio=sd.idSocio 
+    join disciplina d on sd.idDisciplina = d.idDisciplina 
+    where s.dni=d;
+    
+    IF cuotaMensual IS NULL THEN
+        select sum(ArancelMensual) into cuotamensual from nosocio n 
+		join nosociodisciplina nd on n.idNoSocio = nd.idNoSocio 
+		join disciplina d on nd.idDisciplina = d.idDisciplina 
+		where n.dni=d;
+    END IF;
+
+    SELECT cuotaMensual;
+END$$
+
+DELIMITER $$
+
+CREATE PROCEDURE AbonarCuotaDiaria(IN d INT)
+BEGIN
+    DECLARE ids INT;
+    DECLARE idn INT;
+
+    SELECT IdSocio into ids FROM socio WHERE Dni = d;
+    SELECT IdNoSocio into idn FROM noSocio WHERE Dni = d;
+
+    IF ids IS NOT NULL THEN
+        UPDATE socio SET venceCuota = DATE_ADD(venceCuota, INTERVAL 1 DAY)
+        WHERE IdSocio = ids;
+    ELSEIF idn IS NOT NULL THEN
+        UPDATE noSocio SET venceCuota = DATE_ADD(venceCuota, INTERVAL 1 DAY)
+        WHERE IdNoSocio = idn;
+    END IF;
+END$$
+
+DELIMITER $$
+
+CREATE PROCEDURE AbonarCuotaMensual(IN d INT)
+BEGIN
+    DECLARE ids INT;
+    DECLARE idn INT;
+
+    SELECT idSocio into ids FROM socio WHERE dni = d;
+    SELECT idNoSocio into idn FROM noSocio WHERE dni = d;
+
+    IF ids IS NOT NULL THEN
+        UPDATE socio SET venceCuota = DATE_ADD(venceCuota, INTERVAL 1 MONTH)
+        WHERE IdSocio = ids;
+    ELSEIF idn IS NOT NULL THEN
+        UPDATE noSocio SET venceCuota = DATE_ADD(venceCuota, INTERVAL 1 MONTH)
+        WHERE IdNoSocio = idn;
+    END IF;
+    
+END$$
+
+/*-------------------------------------------------------------------------------------------------------------------------------------------------*/
 /*Insercion de Datos para ejemplo*/
+/*-------------------------------------------------------------------------------------------------------------------------------------------------*/
 
 insert into roles values
 (120,'Administrador'),
@@ -280,4 +465,5 @@ insert into noSocioDisciplina (IdNoSocio, IdDisciplina) values
 (4, 2), (5, 2), (6, 2),  
 (7, 3), (8, 3), (9, 3),  
 (10, 4), (1, 4), (2, 4),  
-(3, 5), (4, 5), (5, 5);  
+(3, 5), (4, 5), (5, 5); 
+

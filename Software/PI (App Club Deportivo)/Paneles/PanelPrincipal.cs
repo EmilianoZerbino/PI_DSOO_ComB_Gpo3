@@ -1,12 +1,5 @@
-﻿using MySql.Data.MySqlClient;
-using PI__App_Club_Deportivo_.Entidades;
+﻿using PI__App_Club_Deportivo_.Entidades;
 using PI__App_Club_Deportivo_.Utilidades;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading;
-using System.Threading.Tasks;
 
 namespace PI__App_Club_Deportivo_.Paneles
 {
@@ -40,7 +33,7 @@ namespace PI__App_Club_Deportivo_.Paneles
             Button btnAltaSocio = new Button { Text = "Alta Socio / No Socio" };
             Button btnBajaSocio = new Button { Text = "Baja Socio / No Socio" };
             Button btnInscribir = new Button { Text = "Inscribir a Actividad" };
-            Button btnDesInscribir = new Button { Text = "Desinscribir de Actividad" };
+            Button btnDesInscribir = new Button { Text = "Ver Actividades Socio / Desinscribir de Actividad" };
             Button btnPagarDiaria = new Button { Text = "Pagar Cuota Diaria" };
             Button btnPagarMensual = new Button { Text = "Pagar Cuota Mensual" };
 
@@ -246,17 +239,20 @@ namespace PI__App_Club_Deportivo_.Paneles
 
         private void BtnDesInscribir_Click(object sender, EventArgs e)
         {
-            // Lógica para el botón "Desinscribir de Actividad"
+            FormDesiscribirActividad formulario = new FormDesiscribirActividad(conexionDB);
+            formulario.ShowDialog();
         }
 
         private void BtnPagarDiaria_Click(object sender, EventArgs e)
         {
-            // Lógica para el botón "Pagar Cuota Diaria"
+            FormPagarCuotaDiaria formulario = new FormPagarCuotaDiaria(conexionDB);
+            formulario.ShowDialog();
         }
 
         private void BtnPagarMensual_Click(object sender, EventArgs e)
         {
-            // Lógica para el botón "Pagar Cuota Mensual"
+            FormPagarCuotaMensual formulario = new FormPagarCuotaMensual(conexionDB);
+            formulario.ShowDialog();
         }
     }
 }
