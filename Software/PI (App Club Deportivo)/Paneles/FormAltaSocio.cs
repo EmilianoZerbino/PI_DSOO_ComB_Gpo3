@@ -1,10 +1,16 @@
-﻿namespace PI__App_Club_Deportivo_.Paneles
+﻿using PI__App_Club_Deportivo_.Entidades;
+using PI__App_Club_Deportivo_.Utilidades;
+
+namespace PI__App_Club_Deportivo_.Paneles
 {
     public partial class FormAltaSocio : Form
     {
-        public FormAltaSocio()
+
+        ConexionDB conexionDB;
+        public FormAltaSocio(ConexionDB conexionDB)
         {
             InitializeComponent();
+            this.conexionDB = conexionDB;
         }
         public string Nombres { get { return txtNombres.Text; } }
         public string Apellidos { get { return txtApellidos.Text; } }
@@ -12,7 +18,18 @@
         public string Nacionalidad { get { return txtNacionalidad.Text; } }
 
         public string Calle { get { return txtCalle.Text; } }
-        public int Altura { get { return Convert.ToInt32(txtAltura.Text); } }
+        public int? Altura
+        {
+            get
+            {
+                if (string.IsNullOrWhiteSpace(txtAltura.Text))
+                { return null; }
+                else
+                {
+                    return Convert.ToInt32(txtAltura.Text);
+                }
+            }
+        }
         public int? NPiso { get {
                 if (string.IsNullOrWhiteSpace(txtNPiso.Text))
                 { return null; }
@@ -61,17 +78,41 @@
                 string.IsNullOrWhiteSpace(txtCalle.Text) ||
                 string.IsNullOrWhiteSpace(txtAltura.Text) ||
                 string.IsNullOrWhiteSpace(txtBarrio.Text) ||
-                string.IsNullOrWhiteSpace(txtLocalidad.Text)||
-                rbSocio.Checked==false && rbNoSocio.Checked==false)
+                string.IsNullOrWhiteSpace(txtLocalidad.Text) ||
+                rbSocio.Checked == false && rbNoSocio.Checked == false)
             {
                 // Mostrar mensaje de advertencia si hay algún campo vacío
                 MessageBox.Show("Por favor, complete todos los campos antes de continuar.", "Advertencia", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                this.DialogResult = DialogResult.None;
             }
-            else
+            else if (cbApto.Checked == false)
             {
-                this.DialogResult = DialogResult.OK;
-                this.Close();
+                // Mostrar mensaje de advertencia si no posee Apto Físico
+                MessageBox.Show("No se puede dar de alta a un Socio / No Socio sin Apto físico", "Advertencia", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                this.DialogResult = DialogResult.None;
             }
+            else {
+
+                List<Socio> listaSocios = conexionDB.ObtenerListaDeSocios();
+                List<NoSocio> listaNoSocios = conexionDB.ObtenerListaDeNoSocios();
+
+                foreach (Socio socio in listaSocios) {
+                    if (socio.Dni == Convert.ToInt32(txtDni.Text)) {
+                        MessageBox.Show("Ya se encuentra un Socio registrado con ese DNI", "Advertencia", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                        this.DialogResult = DialogResult.None;
+                    }
+                }
+
+                foreach (NoSocio noSocio in listaNoSocios)
+                {
+                    if (noSocio.Dni == Convert.ToInt32(txtDni.Text))
+                    {
+                        MessageBox.Show("Ya se encuentra un No Socio registrado con ese DNI", "Advertencia", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                        this.DialogResult = DialogResult.None;
+                    }
+                }
+            }
+
         }
     }
 

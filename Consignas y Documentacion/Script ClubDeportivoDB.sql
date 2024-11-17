@@ -6,7 +6,7 @@ use ClubDeportivo;
 /*Tablas de Datos del Sistema*/
 /*-------------------------------------------------------------------------------------------------------------------------------------------------*/
 
-drop table if exists disciplinahorario;
+/*drop table if exists disciplinahorario;
 drop table if exists socioDisciplina;
 drop table if exists noSocioDisciplina;
 drop table if exists disciplina;
@@ -14,7 +14,7 @@ drop table if exists horario;
 drop table if exists socio;
 drop table if exists noSocio;
 drop table if exists profesor;
-drop table if exists direccion;
+drop table if exists direccion;*/
 
 
 create table direccion(
@@ -106,8 +106,8 @@ create table noSocioDisciplina(
 /*Tablas de Usuarios del Sistema*/
 /*-------------------------------------------------------------------------------------------------------------------------------------------------*/
 
-drop table if exists usuario;
-drop table if exists roles;
+/* table if exists usuario;
+drop table if exists roles;*/
 
 create table roles(
 RolUsu int,

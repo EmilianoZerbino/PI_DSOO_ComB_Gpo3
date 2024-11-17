@@ -58,13 +58,12 @@ namespace PI__App_Club_Deportivo_.Paneles
         {
             if (tabla.SelectedRows.Count > 0)
             {
-                // Obtener la fila seleccionada
+               
                 DataGridViewRow filaSeleccionada = tabla.SelectedRows[0];
 
-                // Asegúrate de que no se esté seleccionando el encabezado
+               
                 if (filaSeleccionada.Index >= 0 && filaSeleccionada.Index < tabla.Rows.Count - 1)
                 {
-                    // Mostrar un MessageBox de confirmación
                     DialogResult result = MessageBox.Show(
                             "¿Estás seguro de que deseas Deinscribir al Socio / No Socio con DNI " + txtDni.Text + "de " + filaSeleccionada.Cells["Actividad"].Value.ToString() + "?",
                             "Confirmar Desincripcion",
@@ -80,13 +79,11 @@ namespace PI__App_Club_Deportivo_.Paneles
                 }
                 else
                 {
-                    // Mostrar mensaje de advertencia si se seleccionó el encabezado
                     MessageBox.Show("Seleccione una sola fila.", "Advertencia", MessageBoxButtons.OK, MessageBoxIcon.Warning);
                 }
             }
             else
             {
-                // Mostrar mensaje de advertencia si no hay selección
                 MessageBox.Show("Debe seleccionar una actividad antes de continuar.", "Advertencia", MessageBoxButtons.OK, MessageBoxIcon.Warning);
             }
         }

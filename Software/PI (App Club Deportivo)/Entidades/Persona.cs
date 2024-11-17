@@ -23,13 +23,13 @@
     {
 
         public string Calle { get; set; }
-        public int Altura { get; set; }
+        public int? Altura { get; set; }
         public int? NPiso { get; set; } //El signo de pregunta es para que acepte valores null
         public int? NDepto { get; set; } //El signo de pregunta es para que acepte valores null
         public string Barrio { get; set; }
         public string Localidad { get; set; }
 
-        public Direccion(string calle, int altura, int? nPiso, int? nDepto, string barrio, string localidad)
+        public Direccion(string calle, int? altura, int? nPiso, int? nDepto, string barrio, string localidad)
         {
 
             Calle = calle;

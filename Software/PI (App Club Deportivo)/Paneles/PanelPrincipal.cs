@@ -1,5 +1,6 @@
 ﻿using PI__App_Club_Deportivo_.Entidades;
 using PI__App_Club_Deportivo_.Utilidades;
+using System.Net;
 
 namespace PI__App_Club_Deportivo_.Paneles
 {
@@ -205,7 +206,7 @@ namespace PI__App_Club_Deportivo_.Paneles
 
         private void BtnAltaSocio_Click(object sender, EventArgs e)
         {
-            FormAltaSocio formulario = new FormAltaSocio();
+            FormAltaSocio formulario = new FormAltaSocio(conexionDB);
             DialogResult resultado = formulario.ShowDialog();
             DateTime hoy = DateTime.Now;
             if (resultado == DialogResult.OK)
@@ -216,12 +217,16 @@ namespace PI__App_Club_Deportivo_.Paneles
                 {
                     Socio socio = new Socio(formulario.Dni, formulario.Nombres, formulario.Apellidos, direccion, formulario.Nacionalidad, hoy);
                     conexionDB.InsertarSocio(socio);
+                    MessageBox.Show("Se ha dado de alta correctamente al Socio con DNI: " + formulario.Dni, "Exito", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                    MessageBox.Show("Se le entregará el carnet con el numero de Socio: " + formulario.Dni, "Exito", MessageBoxButtons.OK, MessageBoxIcon.Information);
                 }
                 else
                 {
                     NoSocio noSocio = new NoSocio(formulario.Dni, formulario.Nombres, formulario.Apellidos, direccion, formulario.Nacionalidad, hoy);
                     conexionDB.InsertarNoSocio(noSocio);
+                    MessageBox.Show("Se ha dado de alta correctamente al No Socio con DNI: " + formulario.Dni, "Exito", MessageBoxButtons.OK, MessageBoxIcon.Information);
                 }
+
             }
         }
 

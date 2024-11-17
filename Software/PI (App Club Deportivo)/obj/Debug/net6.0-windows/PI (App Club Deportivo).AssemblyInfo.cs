@@ -14,7 +14,7 @@ using System.Reflection;
 [assembly: System.Reflection.AssemblyCompanyAttribute("PI (App Club Deportivo)")]
 [assembly: System.Reflection.AssemblyConfigurationAttribute("Debug")]
 [assembly: System.Reflection.AssemblyFileVersionAttribute("1.0.0.0")]
-[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+1e2da3d7ac4371ed427eb4fd3ba5593879bb5e1e")]
+[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+3a3fffc90e2ffa2f9475bc2db771f6051e901693")]
 [assembly: System.Reflection.AssemblyProductAttribute("PI (App Club Deportivo)")]
 [assembly: System.Reflection.AssemblyTitleAttribute("PI (App Club Deportivo)")]
 [assembly: System.Reflection.AssemblyVersionAttribute("1.0.0.0")]

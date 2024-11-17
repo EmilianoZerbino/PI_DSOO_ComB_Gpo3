@@ -33,8 +33,10 @@ namespace PI__App_Club_Deportivo_.Paneles
                     if (conexionDB.bajaSocio(Convert.ToInt32(txtDni.Text)))
                     {
                         MessageBox.Show("El Socio fue dado de baja correctamente.", "Baja Exitosa", MessageBoxButtons.OK, MessageBoxIcon.Information);
-                    } else if (conexionDB.bajaNoSocio(Convert.ToInt32(txtDni.Text))) {
-                            MessageBox.Show("El NoSocio fue dado de baja correctamente.", "Baja Exitosa", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                    }
+                    else if (conexionDB.bajaNoSocio(Convert.ToInt32(txtDni.Text)))
+                    {
+                        MessageBox.Show("El NoSocio fue dado de baja correctamente.", "Baja Exitosa", MessageBoxButtons.OK, MessageBoxIcon.Information);
                     }
                     else
                     {
@@ -51,12 +53,11 @@ namespace PI__App_Club_Deportivo_.Paneles
 
         private void txt_KeyPress(object sender, KeyPressEventArgs e)
         {
-            // Permitir solo números y el carácter de control (como borrar)
-            if (!char.IsControl(e.KeyChar) && !char.IsDigit(e.KeyChar))
+            
+            if (!char.IsControl(e.KeyChar) && !char.IsDigit(e.KeyChar) || !char.IsControl(e.KeyChar) && txtDni.Text.Length >= 8)
             {
-                e.Handled = true; // Bloquea la entrada
+                e.Handled = true;
             }
         }
-
     }
 }

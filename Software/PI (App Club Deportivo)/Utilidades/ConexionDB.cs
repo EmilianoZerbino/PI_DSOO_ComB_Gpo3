@@ -696,7 +696,7 @@ namespace PI__App_Club_Deportivo_.Utilidades
                     }
                     if (!existente)
                     {
-                        Profesor profesor = new Profesor(0, lector.GetString("Nombres"), lector.GetString("Nombres"), null, "", 0);
+                        Profesor profesor = new Profesor(0, lector.GetString("Nombres"), lector.GetString("Apellidos"), null, "", 0);
                         Disciplina disciplina = new Disciplina(lector.GetInt32("IdDisciplina"), lector.GetString("Nombre"), profesor, 0, new List<Horario>(), lector.GetInt32("ArancelMensual"));
                         listaDisciplinas.Add(disciplina);
                     }

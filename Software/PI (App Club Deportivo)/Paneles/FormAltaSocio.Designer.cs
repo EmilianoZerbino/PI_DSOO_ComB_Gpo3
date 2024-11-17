@@ -57,9 +57,13 @@
             gbCategoria = new GroupBox();
             rbNoSocio = new RadioButton();
             rbSocio = new RadioButton();
+            groupBox1 = new GroupBox();
+            label2 = new Label();
+            cbApto = new CheckBox();
             gbDatosPersonales.SuspendLayout();
             gbDireccion.SuspendLayout();
             gbCategoria.SuspendLayout();
+            groupBox1.SuspendLayout();
             SuspendLayout();
             // 
             // label1
@@ -321,9 +325,9 @@
             gbCategoria.Controls.Add(rbNoSocio);
             gbCategoria.Controls.Add(rbSocio);
             gbCategoria.Font = new Font("Segoe UI", 11.25F, FontStyle.Regular, GraphicsUnit.Point);
-            gbCategoria.Location = new Point(121, 456);
+            gbCategoria.Location = new Point(18, 446);
             gbCategoria.Name = "gbCategoria";
-            gbCategoria.Size = new Size(282, 64);
+            gbCategoria.Size = new Size(237, 64);
             gbCategoria.TabIndex = 26;
             gbCategoria.TabStop = false;
             gbCategoria.Text = "Categoria";
@@ -332,7 +336,7 @@
             // 
             rbNoSocio.AutoSize = true;
             rbNoSocio.Font = new Font("Segoe UI", 11.25F, FontStyle.Regular, GraphicsUnit.Point);
-            rbNoSocio.Location = new Point(160, 26);
+            rbNoSocio.Location = new Point(115, 26);
             rbNoSocio.Name = "rbNoSocio";
             rbNoSocio.Size = new Size(88, 24);
             rbNoSocio.TabIndex = 1;
@@ -343,18 +347,48 @@
             // 
             rbSocio.AutoSize = true;
             rbSocio.Font = new Font("Segoe UI", 11.25F, FontStyle.Regular, GraphicsUnit.Point);
-            rbSocio.Location = new Point(48, 26);
+            rbSocio.Location = new Point(29, 26);
             rbSocio.Name = "rbSocio";
             rbSocio.Size = new Size(64, 24);
             rbSocio.TabIndex = 0;
             rbSocio.Text = "Socio";
             rbSocio.UseVisualStyleBackColor = true;
             // 
+            // groupBox1
+            // 
+            groupBox1.Controls.Add(cbApto);
+            groupBox1.Controls.Add(label2);
+            groupBox1.Location = new Point(283, 455);
+            groupBox1.Name = "groupBox1";
+            groupBox1.Size = new Size(224, 55);
+            groupBox1.TabIndex = 27;
+            groupBox1.TabStop = false;
+            groupBox1.Text = "Apto Físico";
+            // 
+            // label2
+            // 
+            label2.AutoSize = true;
+            label2.Location = new Point(32, 26);
+            label2.Name = "label2";
+            label2.Size = new Size(110, 15);
+            label2.TabIndex = 0;
+            label2.Text = "¿Posee Apto Físico?";
+            // 
+            // cbApto
+            // 
+            cbApto.AutoSize = true;
+            cbApto.Location = new Point(166, 27);
+            cbApto.Name = "cbApto";
+            cbApto.Size = new Size(15, 14);
+            cbApto.TabIndex = 1;
+            cbApto.UseVisualStyleBackColor = true;
+            // 
             // FormAltaSocio
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
             ClientSize = new Size(530, 588);
+            Controls.Add(groupBox1);
             Controls.Add(gbCategoria);
             Controls.Add(gbDireccion);
             Controls.Add(gbDatosPersonales);
@@ -371,6 +405,8 @@
             gbDireccion.PerformLayout();
             gbCategoria.ResumeLayout(false);
             gbCategoria.PerformLayout();
+            groupBox1.ResumeLayout(false);
+            groupBox1.PerformLayout();
             ResumeLayout(false);
             PerformLayout();
         }
@@ -405,5 +441,8 @@
         private GroupBox gbCategoria;
         private RadioButton rbNoSocio;
         private RadioButton rbSocio;
+        private GroupBox groupBox1;
+        private CheckBox cbApto;
+        private Label label2;
     }
 }
